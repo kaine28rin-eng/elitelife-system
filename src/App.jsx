@@ -31,7 +31,7 @@ export default function App() {
   const noiseRef = useRef(null)
 
   // Extract uid from URL
-  const uid = new URLSearchParams(window.location.search).get('uid') || null
+  const uid = window.Telegram?.WebApp?.initDataUnsafe?.user?.id?.toString() || new URLSearchParams(window.location.search).get('uid') || null
 
   // Transition from landing/scroll → poll
   const enterPoll = useCallback(() => {
